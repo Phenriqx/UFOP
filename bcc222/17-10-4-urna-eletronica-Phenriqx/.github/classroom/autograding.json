@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Teste: Encerramento Imediato",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run urna-eletronica:test:tests -- --no-color --match \"Urna Eletronica/encerra imediatamente com voto 0 e mostra tudo zerado\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste: Contagem de Candidatos",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run urna-eletronica:test:tests -- --no-color --match \"Urna Eletronica/contabiliza votos corretamente para cada candidato\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 3
+    },
+    {
+      "name": "Teste: Contagem de Nulos",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run urna-eletronica:test:tests -- --no-color --match \"Urna Eletronica/contabiliza votos nulos corretamente\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 3
+    },
+    {
+      "name": "Teste: Feedback Interativo",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run urna-eletronica:test:tests -- --no-color --match \"Urna Eletronica/interage com mensagens de feedback a cada voto\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    }
+  ]
+}

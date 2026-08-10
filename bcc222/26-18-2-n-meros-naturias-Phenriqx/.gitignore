@@ -1,0 +1,11 @@
+dist-newstyle/
+.stack-work/
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+*.hp
+*.prof
+*.aux
+*.log
+.DS_Store

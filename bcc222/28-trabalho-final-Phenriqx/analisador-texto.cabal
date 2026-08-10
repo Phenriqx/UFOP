@@ -1,0 +1,44 @@
+cabal-version:      3.0
+name:               analisador-texto
+version:            0.1.0.0
+synopsis:           Projeto final de Programação Funcional: analisador de frequência de texto
+description:        Template para o projeto final da disciplina de Programação Funcional em Haskell.
+license:            NONE
+author:             Nome do aluno
+maintainer:         professor@example.com
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:
+        TextAnalysis.Types
+        TextAnalysis.Normalize
+        TextAnalysis.Statistics
+        TextAnalysis.Frequency
+        TextAnalysis.Report
+    hs-source-dirs:   src
+    build-depends:    base >= 4.14 && < 5
+    default-language: Haskell2010
+
+executable analisador-texto
+    import:           warnings
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    build-depends:
+        base >= 4.14 && < 5,
+        analisador-texto
+    default-language: Haskell2010
+
+test-suite analisador-texto-test
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    main-is:          MainSpec.hs
+    hs-source-dirs:   test
+    build-depends:
+        base >= 4.14 && < 5,
+        analisador-texto,
+        hspec >= 2.10 && < 3
+    default-language: Haskell2010

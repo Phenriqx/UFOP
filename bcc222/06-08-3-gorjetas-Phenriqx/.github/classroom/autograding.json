@@ -1,0 +1,174 @@
+{
+  "tests": [
+    {
+      "name": "Função gorjeta - Serviço ruim",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/calcula 5% para serviço ruim\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Serviço bom",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/calcula 10% para serviço bom\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Serviço excelente",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/calcula 15% para serviço excelente\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Qualidade inválida",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/retorna Nothing para qualidade inválida\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Conta negativa",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/retorna Nothing para conta negativa\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Prop: Just para válidas",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/retorna Just para contas não negativas e qualidades válidas\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Prop: Nothing para contas negativas",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/retorna Nothing para contas negativas\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Prop: Nothing para qualidades inválidas",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/retorna Nothing para qualidades inválidas\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Prop: porcentagem ruim",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/calcula corretamente a porcentagem para serviço ruim\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Prop: porcentagem bom",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/calcula corretamente a porcentagem para serviço bom\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função gorjeta - Prop: porcentagem excelente",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Função gorjeta/calcula corretamente a porcentagem para serviço excelente\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Qualidade inválida",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Programa principal/imprime entrada inválida para qualidade inválida\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Serviço ruim",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Programa principal/calcula a gorjeta para serviço ruim\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Serviço bom",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Programa principal/calcula a gorjeta para serviço bom\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Serviço excelente",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Programa principal/calcula a gorjeta para serviço excelente\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Conta textual",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Programa principal/imprime entrada inválida para valor textual da conta\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Conta negativa",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run gorjetas:test:tests -- --no-color --match \"Programa principal/imprime entrada inválida para conta negativa\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}

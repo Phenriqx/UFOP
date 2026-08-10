@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Teste (comprime): Casos Básicos",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run rle-compressor:test:tests -- --no-color --match \"Função: comprime\"",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 3
+    },
+    {
+      "name": "Teste (descomprime): Casos Básicos e Validação",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run rle-compressor:test:tests -- --no-color --match \"Função: descomprime\"",
+      "input": "",
+      "output": "4 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 3
+    },
+    {
+      "name": "Teste (Propriedade): Inversão das Funções",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run rle-compressor:test:tests -- --no-color --match \"Propriedade de Inversão\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Teste (main): Interação do Usuário",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run rle-compressor:test:tests -- --no-color --match \"Ação de E/S: main\"",
+      "input": "",
+      "output": "2 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    }
+  ]
+}

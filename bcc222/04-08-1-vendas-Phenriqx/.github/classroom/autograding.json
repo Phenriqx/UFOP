@@ -1,0 +1,84 @@
+{
+  "tests": [
+    {
+      "name": "Função valorTotal - Zero",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Função valorTotal/retorna zero para quantidades zero\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função valorTotal - Até 5 kg",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Função valorTotal/usa os preços menores quando as duas quantidades são de até 5 kg\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função valorTotal - Morangos acima de 5 kg",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Função valorTotal/usa preço reduzido para morangos acima de 5 kg\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função valorTotal - Maçãs acima de 5 kg",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Função valorTotal/usa preço reduzido para maçãs acima de 5 kg\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função valorTotal - Duas quantidades acima de 5 kg",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Função valorTotal/usa os preços reduzidos quando as duas quantidades são acima de 5 kg\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Morangos negativos",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Programa principal/rejeita quantidade negativa de morangos\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Maçãs negativas",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Programa principal/rejeita quantidade negativa de maçãs\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Entradas válidas",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run vendas:test:tests -- --no-color --match \"Programa principal/imprime o valor total para entradas válidas\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}

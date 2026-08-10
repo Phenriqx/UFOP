@@ -1,0 +1,43 @@
+name: GitHub Classroom Workflow - Promoção de chocolates
+
+on:
+  - push
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  compilar_e_testar:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Haskell
+        id: setup-haskell
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.4.8'
+          cabal-version: '3.10.3.0'
+
+      - name: Cache Cabal store
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cabal/store
+            dist-newstyle
+          key: ${{ runner.os }}-ghc-${{ steps.setup-haskell.outputs.ghc-version }}-${{ hashFiles('**/chocolates.cabal') }}
+          restore-keys: |
+            ${{ runner.os }}-ghc-${{ steps.setup-haskell.outputs.ghc-version }}-
+
+      - name: Update Cabal package index
+        run: cabal update
+
+      - name: Build project and tests
+        run: cabal build --enable-tests
+
+      - name: Run Autograding Tests
+        uses: education/autograding@v1

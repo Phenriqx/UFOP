@@ -1,0 +1,94 @@
+{
+  "tests": [
+    {
+      "name": "clientePedido",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match clientePedido\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "itensPedido",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match itensPedido\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "totalPedido",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match totalPedido\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "quantidadeTiposItens",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match quantidadeTiposItens\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "temTotalCalculado",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match temTotalCalculado\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "totalOuPadrao",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match totalOuPadrao\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "consultarDesconto",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match consultarDesconto\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "clienteTemDesconto",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match clienteTemDesconto\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 1
+    },
+    {
+      "name": "quantidadeTotalUnidades",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-pedidos --test-options=\"--match quantidadeTotalUnidades\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 2
+    }
+  ]
+}

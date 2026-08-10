@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Teste (hanoi): Lógica Pura",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run hanoi-solver:test:tests -- --no-color --match \"Função Pura: hanoi\"",
+      "input": "",
+      "output": "4 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 5
+    },
+    {
+      "name": "Teste (main): Interação com Usuário",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run hanoi-solver:test:tests -- --no-color --match \"Ação de E/S: main\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 5
+    }
+  ]
+}

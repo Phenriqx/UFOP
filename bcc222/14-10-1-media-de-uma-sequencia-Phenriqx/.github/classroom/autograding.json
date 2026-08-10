@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "name": "Teste (calculaMedia): Lista Vazia",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run media-sequencia:test:tests -- --no-color --match \"Função Pura: calculaMedia/retorna 0.0 para uma lista vazia\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste (calculaMedia): Propriedade com QuickCheck",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run media-sequencia:test:tests -- --no-color --match \"Função Pura: calculaMedia/é equivalente a sum/length para listas não vazias\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Teste (main): Caso Padrão (4 números)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run media-sequencia:test:tests -- --no-color --match \"Ação de E/S: main/calcula a média para 4 números\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste (main): Caso com n=0",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run media-sequencia:test:tests -- --no-color --match \"Ação de E/S: main/retorna 0.0 para n = 0\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Teste (main): Caso com n < 0",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run media-sequencia:test:tests -- --no-color --match \"Ação de E/S: main/retorna 0.0 para n < 0\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Teste (main): Caso com 1 número",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run media-sequencia:test:tests -- --no-color --match \"Ação de E/S: main/calcula a média para 1 número\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}

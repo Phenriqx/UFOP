@@ -1,0 +1,31 @@
+# .hlint.yaml — regras específicas para a atividade do capítulo 14
+#
+# Objetivo pedagógico:
+# - Exercício 1: exigir expressões lambda explícitas nas funções com sufixo Lambda.
+# - Exercício 2: exigir aplicação parcial ou seções, rejeitando lambdas evitáveis.
+# - Exercício 3: permitir lambdas com padrões em tuplas.
+
+# Tornamos alguns avisos de estilo em erro para que o GitHub Classroom
+# consiga sinalizar violações de estilo de forma objetiva.
+- error: {name: Avoid lambda}
+- error: {name: Eta reduce}
+- error: {name: Redundant lambda}
+- error: {name: Use section}
+- error: {name: Use infix}
+- error: {name: "Avoid lambda using `infix`"}
+
+# As funções originais do exercício 1 são fornecidas no enunciado como ponto
+# de partida e não devem ser penalizadas pelo HLint.
+- ignore: {within: Exercicios.somaQuadradosPares}
+- ignore: {within: Exercicios.stringsMaioresQue5}
+- ignore: {within: Exercicios.adicionaExclamacaoPar}
+
+# No exercício 1, lambdas explícitas são parte obrigatória da tarefa.
+- ignore: {within: Exercicios.somaQuadradosParesLambda}
+- ignore: {within: Exercicios.stringsMaioresQue5Lambda}
+- ignore: {within: Exercicios.adicionaExclamacaoParLambda}
+
+# No exercício 3, lambdas com casamento de padrão em tuplas são intencionais.
+- ignore: {within: Exercicios.aplicaTaxa}
+- ignore: {within: Exercicios.alunosAprovados}
+- ignore: {within: Exercicios.aplicaDesconto}

@@ -1,0 +1,4 @@
+nome,temCartao,limiteTotal,limiteDisponivel,valorFatura,bloqueado,faturaGerada
+Carlos Eduardo,0,0,0,0,0,0
+Gabriel,1,8000,5200,0,0,0
+Pedro,1,10000,6000,0,0,0

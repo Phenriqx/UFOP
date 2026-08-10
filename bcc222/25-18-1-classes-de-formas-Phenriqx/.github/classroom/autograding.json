@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "cabal test",
+      "setup": "cabal update",
+      "run": "cabal test all --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 100
+    }
+  ]
+}

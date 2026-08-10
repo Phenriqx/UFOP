@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "Teste (calculaPreco): Faixa 1 (<= 10)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run chocolates:test:tests -- --no-color --match \"Função Pura: calculaPreco/calcula corretamente para a primeira faixa de preço (<= 10)\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste (calculaPreco): Faixa 2 (> 10)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run chocolates:test:tests -- --no-color --match \"Função Pura: calculaPreco/calcula corretamente para a segunda faixa de preço (> 10 e <= 30)\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste (calculaPreco): Faixa 3 (> 30)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run chocolates:test:tests -- --no-color --match \"Função Pura: calculaPreco/calcula corretamente para a terceira faixa de preço (> 30 e <= 60)\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste (calculaPreco): Faixa 4 (> 60)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run chocolates:test:tests -- --no-color --match \"Função Pura: calculaPreco/calcula corretamente para a quarta faixa de preço (> 60)\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Teste (main): Interação Completa",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run chocolates:test:tests -- --no-color --match \"Ação de E/S: main\"",
+      "input": "",
+      "output": "2 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    }
+  ]
+}

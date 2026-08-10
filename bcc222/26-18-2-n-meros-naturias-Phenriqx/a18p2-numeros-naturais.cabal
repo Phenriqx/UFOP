@@ -1,0 +1,37 @@
+cabal-version:      3.0
+name:               a18p2-numeros-naturais
+version:            0.1.0.0
+build-type:         Simple
+license:            NONE
+author:             BCC222
+maintainer:         professor@example.com
+synopsis:           Atividade do capítulo 18: classes de tipos
+category:           Education
+
+common warnings
+  ghc-options:      -Wall
+
+library
+  import:           warnings
+  exposed-modules:  Atividade.NumerosNaturais
+  hs-source-dirs:   src
+  build-depends:    base >= 4.14 && < 5
+  default-language: Haskell2010
+
+executable a18p2-numeros-naturais-exe
+  import:           warnings
+  main-is:          Main.hs
+  hs-source-dirs:   app
+  build-depends:    base >= 4.14 && < 5,
+                    a18p2-numeros-naturais
+  default-language: Haskell2010
+
+test-suite a18p2-numeros-naturais-test
+  import:           warnings
+  type:             exitcode-stdio-1.0
+  main-is:          MainSpec.hs
+  hs-source-dirs:   test
+  build-depends:    base >= 4.14 && < 5,
+                    hspec >= 2.7 && < 3,
+                    a18p2-numeros-naturais
+  default-language: Haskell2010

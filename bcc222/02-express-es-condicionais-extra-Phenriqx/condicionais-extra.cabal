@@ -1,0 +1,40 @@
+cabal-version:      2.4
+name:               condicionais-extra
+version:            0.1.0.0
+build-type:         Simple
+license:            MIT
+author:             José Romildo Malaquias
+maintainer:         malaquias@ufop.edu.br
+category:           Education
+synopsis:           Atividade extra-classe sobre condicionais em Haskell
+
+common common-settings
+  default-language: Haskell2010
+  ghc-options: -Wall
+  hs-source-dirs: test, src
+  build-depends:
+      base >=4.14 && <5,
+      hspec >=2.7,
+      QuickCheck >=2.14,
+      ieee754,
+
+test-suite test-classifica-ano
+  import: common-settings
+  type: exitcode-stdio-1.0
+  main-is: ClassificaAnoSpec.hs
+  other-modules:
+      ClassificaAno
+
+test-suite test-preco-transmissao
+  import: common-settings
+  type: exitcode-stdio-1.0
+  main-is: PrecoTransmissaoSpec.hs
+  other-modules:
+      PrecoTransmissao
+
+test-suite test-analisa-vulnerabilidade
+  import: common-settings
+  type: exitcode-stdio-1.0
+  main-is: AnalisaVulnerabilidadeSpec.hs
+  other-modules:
+      AnalisaVulnerabilidade

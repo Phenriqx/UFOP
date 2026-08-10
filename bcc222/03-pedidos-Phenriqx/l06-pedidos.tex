@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage{jrm-roteiro}
+
+\title{Roteiro da aula prática 06\\Pedidos}
+\author{BCC222 --- Programação funcional}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Esta aula prática propõe a implementação de funções para um pequeno sistema
+de preparação de pedidos de uma loja virtual. A atividade integra tuplas,
+listas, \haskellinline{Maybe}, listas de associação e sinônimos de tipo em um
+mesmo contexto, permitindo que os conceitos do capítulo 6 sejam exercitados
+de forma aplicada.
+\end{abstract}
+
+\section{Objetivos}
+
+Ao final desta atividade, espera-se que você seja capaz de:
+
+\begin{itemize}
+  \item manipular dados organizados em tuplas e listas;
+  \item usar \haskellinline{Maybe} para tratar a possível ausência de valor;
+  \item consultar informações em listas de associação usando
+  \haskellinline{lookup};
+  \item empregar sinônimos de tipo para tornar a modelagem mais legível;
+  \item aplicar a ideia de recursão sobre listas em um exercício introdutório.
+\end{itemize}
+
+\section{Contexto}
+
+Uma loja virtual precisa representar pedidos de clientes, consultar
+informações básicas sobre cada pedido e tratar situações em que o valor total
+ainda não foi calculado. Além disso, a loja mantém uma tabela de descontos
+por cliente.
+
+Nesta atividade, o contexto de \emph{pedidos} será usado para integrar, em um
+único problema, os conceitos estudados no capítulo 6.
+
+\section{Modelagem fornecida}
+
+A atividade utiliza os seguintes tipos:
+
+\begin{haskellcode}
+type Cliente = String
+type NomeProduto = String
+type Quantidade = Int
+type ValorTotal = Double
+
+type ItemPedido = (NomeProduto, Quantidade)
+type Pedido = (Cliente, [ItemPedido], Maybe ValorTotal)
+type TabelaDescontos = [(Cliente, Double)]
+\end{haskellcode}
+
+Para acessar os componentes de uma tripla, você pode usar as funções
+\haskellinline{fst3}, \haskellinline{snd3} e \haskellinline{thd3}, do módulo
+\haskellinline{Data.Tuple.Extra}.
+
+\section{Tarefas}
+
+Implemente, no arquivo \texttt{src/Pedidos.hs}, as seguintes funções.
+
+\subsection*{1. Acesso aos componentes do pedido}
+
+\begin{haskellcode}
+clientePedido :: Pedido -> Cliente
+itensPedido :: Pedido -> [ItemPedido]
+totalPedido :: Pedido -> Maybe ValorTotal
+\end{haskellcode}
+
+\subsection*{2. Informações derivadas do pedido}
+
+\begin{haskellcode}
+quantidadeTiposItens :: Pedido -> Int
+temTotalCalculado :: Pedido -> Bool
+totalOuPadrao :: ValorTotal -> Pedido -> ValorTotal
+\end{haskellcode}
+
+\subsection*{3. Consulta em tabela de descontos}
+
+\begin{haskellcode}
+consultarDesconto :: Cliente -> TabelaDescontos -> Double
+clienteTemDesconto :: Cliente -> TabelaDescontos -> Bool
+\end{haskellcode}
+
+\subsection*{4. Recursão sobre a lista de itens}
+
+\begin{haskellcode}
+quantidadeTotalUnidades :: [ItemPedido] -> Int
+\end{haskellcode}
+
+Nesta última função, a sugestão é usar recursão. Pense no caso da lista vazia
+e no caso em que há um primeiro item e o restante da lista.
+
+\section{Orientações}
+
+\begin{itemize}
+  \item Edite apenas o arquivo \texttt{src/Pedidos.hs}.
+  \item Use o \texttt{README.md} do repositório como referência principal do
+  enunciado.
+  \item O fluxo de trabalho com GitHub Classroom, Git, Cabal e GHCi não será
+  reexplicado aqui; consulte o roteiro da atividade prática do capítulo 5, se
+  necessário.
+  \item Para abrir o ambiente interativo, use \texttt{cabal repl}.
+  \item Para executar os testes, use \texttt{cabal test}.
+\end{itemize}
+
+\section{Avaliação}
+
+A correção automática está dividida por função, permitindo avaliação
+granular. A distribuição de pontos é:
+
+\begin{itemize}
+  \item \haskellinline{clientePedido}: 1 ponto
+  \item \haskellinline{itensPedido}: 1 ponto
+  \item \haskellinline{totalPedido}: 1 ponto
+  \item \haskellinline{quantidadeTiposItens}: 1 ponto
+  \item \haskellinline{temTotalCalculado}: 1 ponto
+  \item \haskellinline{totalOuPadrao}: 1 ponto
+  \item \haskellinline{consultarDesconto}: 1 ponto
+  \item \haskellinline{clienteTemDesconto}: 1 ponto
+  \item \haskellinline{quantidadeTotalUnidades}: 2 pontos
+\end{itemize}
+
+\section{Entrega}
+
+\begin{itemize}
+  \item \textbf{Data regular de entrega:} até 28 de abril.
+  \item \textbf{Data limite com penalização:} até 5 de maio.
+  \item Após a data regular, haverá 9 dias de tolerância, com penalização de
+  10\% por dia de atraso.
+\end{itemize}
+
+\section{Observação final}
+
+Embora a maior parte da atividade possa ser resolvida com funções já
+estudadas, a última função serve como uma primeira aproximação à ideia de
+recursão sobre listas, que será estudada formalmente em um capítulo futuro.
+
+\end{document}

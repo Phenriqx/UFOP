@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Casos Básicos",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run test:tests -- --match \"avalia\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 40
+    },
+    {
+      "name": "Tratamento de Erros (Safety)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run test:tests -- --match \"retorna Nothing\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 40
+    },
+    {
+      "name": "Propriedades (QuickCheck)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run test:tests -- --match \"Propriedades\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    }
+  ]
+}

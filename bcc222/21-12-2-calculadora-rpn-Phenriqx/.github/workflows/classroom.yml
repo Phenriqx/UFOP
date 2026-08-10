@@ -1,0 +1,35 @@
+name: GitHub Classroom Workflow - RPN Calculator
+
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Haskell
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.2.8'
+          cabal-version: '3.8.1.0'
+      
+      - name: Cache Cabal
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cabal/store
+            dist-newstyle
+          key: ${{ runner.os }}-ghc-9.2.8-${{ hashFiles('**/rpn-calculator.cabal') }}
+          restore-keys: ${{ runner.os }}-ghc-9.2.8-
+
+      - name: Build
+        run: cabal build --enable-tests
+
+      - name: Run Tests
+        uses: education/autograding@v1

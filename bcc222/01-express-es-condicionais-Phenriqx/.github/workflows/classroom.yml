@@ -1,0 +1,40 @@
+name: GitHub Classroom Workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar GHC e Cabal
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: "9.6.6"
+          cabal-version: "3.10.3.0"
+
+      - name: Restaurar cache do Cabal e do build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cabal/store
+            dist-newstyle
+          key: ${{ runner.os }}-ghc-${{ hashFiles('**/condicionais.cabal') }}
+          restore-keys: |
+            ${{ runner.os }}-ghc-
+
+      - name: Atualizar índice do Cabal
+        run: cabal update
+
+      - name: GitHub Classroom Autograding
+        uses: education/autograding@v1

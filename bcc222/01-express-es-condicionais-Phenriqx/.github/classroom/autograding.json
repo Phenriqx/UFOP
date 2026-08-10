@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Exercício 1 - calculaFrete",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-calcula-frete --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 3
+    },
+    {
+      "name": "Exercício 2 - valorFinal",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-valor-final --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 3
+    },
+    {
+      "name": "Exercício 3 - valorPremio",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-valor-premio --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 4
+    }
+  ]
+}

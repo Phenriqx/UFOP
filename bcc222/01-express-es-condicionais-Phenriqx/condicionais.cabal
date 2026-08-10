@@ -1,0 +1,32 @@
+cabal-version:      2.4
+name:               condicionais
+version:            0.1.0.0
+build-type:         Simple
+
+common common-settings
+  default-language: Haskell2010
+  ghc-options: -Wall -Wno-missing-home-modules
+  hs-source-dirs: test, src
+  build-depends:
+      base >=4.14 && <5,
+      hspec >=2.7,
+      QuickCheck,
+      ieee754
+
+test-suite test-calcula-frete
+  import:              common-settings
+  type:                exitcode-stdio-1.0
+  main-is:             CalculaFreteSpec.hs
+  other-modules:       CalculaFrete
+
+test-suite test-valor-final
+  import:              common-settings
+  type:                exitcode-stdio-1.0
+  main-is:             ValorFinalSpec.hs
+  other-modules:       ValorFinal
+
+test-suite test-valor-premio
+  import:              common-settings
+  type:                exitcode-stdio-1.0
+  main-is:             ValorPremioSpec.hs
+  other-modules:       ValorPremio

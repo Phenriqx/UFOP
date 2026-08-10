@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "ClassificaAno",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-classifica-ano --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "PrecoTransmissao",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-preco-transmissao --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "AnalisaVulnerabilidade",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test test-analisa-vulnerabilidade --test-show-details=direct",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    }
+  ]
+}

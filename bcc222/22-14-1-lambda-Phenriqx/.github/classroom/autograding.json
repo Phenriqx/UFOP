@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Exercício 1: refatoração para expressões lambda",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test exercicios-lambda:test:tests --test-options='--no-color --match \"Exercício 1: refatorando para expressões lambda\"' --test-show-details=direct",
+      "input": "",
+      "output": "4 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 3
+    },
+    {
+      "name": "Exercício 2: aplicação parcial e seções",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test exercicios-lambda:test:tests --test-options='--no-color --match \"Exercício 2: funções especializadas com aplicação parcial e seções\"' --test-show-details=direct",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 2
+    },
+    {
+      "name": "Exercício 3: processamento de dados",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal test exercicios-lambda:test:tests --test-options='--no-color --match \"Exercício 3: processamento de dados\"' --test-show-details=direct",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 3
+    },
+    {
+      "name": "Estilo: HLint",
+      "setup": "",
+      "run": "hlint src --hint=.hlint.yaml",
+      "input": "",
+      "output": "No hints",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 2
+    }
+  ]
+}

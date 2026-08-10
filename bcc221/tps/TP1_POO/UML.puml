@@ -1,0 +1,174 @@
+@startuml UML
+' --- CONFIGURAÇÕES DE ESTILO ---
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam defaultFontName Helvetica
+skinparam classAttributeIconSize 0
+
+' Mantém linhas retas
+skinparam linetype ortho
+
+' Espaçamentos ajustados para acomodar os multiplicadores
+skinparam nodesep 70
+skinparam ranksep 80
+
+skinparam class {
+    BackgroundColor #FAFAFA
+    BorderColor #333333
+    HeaderBackgroundColor #EAEAEA
+    ArrowColor #333333
+    FontColor #222222
+    FontSize 13
+    AttributeFontSize 12
+}
+
+skinparam abstract {
+    BackgroundColor #F0F0F0
+    BorderColor #333333
+    HeaderBackgroundColor #DEDEDE
+}
+' --------------------------------
+
+abstract class Pessoa {
+  # nome : string
+  # trabalho : string
+  - login : string
+  - senha : string
+  + Pessoa(n: string, t: string, l: string, s: string)
+  + ~Pessoa()
+  + exibirDados() : void
+  + setTrabalho(t: string&) : void
+  + setSenha(s: string&) : void
+  + setLogin(l: string&) : void
+  + setNome(n: string&) : void
+  + getSenha() : string
+  + getLogin() : string
+  + getTrabalho() : string
+  + getNome() : string
+  + {abstract} getHeader() : string
+}
+
+class Cliente {
+  - remuneracao : double
+  - taxaDeRendimento : double
+  - saldo : double
+  - tipoDeConta : string
+  - transacoes : vector<Transacao*>
+  - cartao : CartaoCredito
+  - temCartao : bool
+  + Cliente(n: string, t: string, l: string, s: string, rem: double, tipo: string, taxa: double, sal: double, temCartao: bool)
+  + exibirDados() : void
+  + setTransacao(t: Transacao*) : void
+  + getExtrato() : vector<Transacao*>
+  + getTipoDeConta() : string
+  + setTipoDeConta(tipo: string) : void
+  + getRemuneracao() : double
+  + setRemuneracao(novaRemuneracao: double) : void
+  + getSaldo() : double
+  + setSaldo(s: double) : void
+  + getRendimento() : double
+  + setRendimento(r: double) : void
+  + getHeader() : string
+  + possuiCartao() : bool
+  + getCartao() : CartaoCredito&
+  + criarCartao() : void
+  + restaurarCartao(limTot: double, limDisp: double, valFat: double, bloq: bool, fatGerada: bool) : void
+}
+
+class Gerente {
+  - clientes : vector<Cliente*>
+  + Gerente(n: string, l: string, s: string)
+  + exibirDados() : void
+  + getClientes() : vector<Cliente*>
+  + setCliente(c: Cliente*) : void
+  + getHeader() : string
+}
+
+class Transacao {
+  - valor : double
+  - tipo : string
+  - data : string
+  - horario : string
+  - clientesEnvolvidos : vector<Cliente*>
+  + Transacao(t: string, v: double, d: string, h: string)
+  + getTipo() : string
+  + getValor() : double
+  + setValor(v: double) : void
+  + getData() : string
+  + setData(d: string) : void
+  + getHorario() : string
+  + setHorario(h: string) : void
+  + getClientes() : vector<Cliente*>
+  + setClientes(c: Cliente*) : void
+  + exibirTransacao() : void
+  + getHeader() : string
+}
+
+class CompraParcelada {
+  - descricao : string
+  - valorTotal : double
+  - quantidadeParcelas : int
+  - valorParcela : double
+  - parcelasPagas : int
+  + CompraParcelada(descricao: string, valorTotal: double, quantidadeParcelas: int)
+  + getDescricao() : string
+  + getValorTotal() : double
+  + getQuantidadeParcelas() : int
+  + getValorParcela() : double
+  + getParcelasPagas() : int
+  + getParcelasRestantes() : int
+  + setParcelasPagas(pagas: int) : void
+  + estaQuitada() : bool
+  + pagarUmaParcela() : void
+  + exibirCompra() : void
+}
+
+class CartaoCredito {
+  - limiteTotal : double
+  - limiteDisponivel : double
+  - valorFatura : double
+  - bloqueado : bool
+  - faturaGerada : bool
+  - comprasParceladas : vector<CompraParcelada>
+  + CartaoCredito()
+  + getLimiteTotal() : double
+  + getLimiteDisponivel() : double
+  + getValorFatura() : double
+  + estaBloqueado() : bool
+  + criar(remuneracao: double) : void
+  + alterarLimite(novoLimite: double) : void
+  + bloquear() : void
+  + desbloquear() : void
+  + gerarFatura() : void
+  + exibirComprasParceladas() : void
+  + pagarFatura(saldoCliente: double&) : bool
+  + exibirFatura() : void
+  + isFaturaGerada() : bool
+  + getCompras() : vector<CompraParcelada>&
+  + restaurarDados(limTot: double, limDisp: double, valFat: double, bloq: bool, fatGerada: bool) : void
+  + restaurarCompra(desc: string, valTot: double, qtdParc: int, parcPagas: int) : void
+  + realizarCompraParcelada(descricao: string, valorTotal: double, parcelas: int) : bool
+}
+
+' ==========================================
+' RELACIONAMENTOS MAPEADOS CONFORME O ESBOÇO
+' ==========================================
+
+' Pessoa no topo
+Pessoa <|-down- Cliente 
+Pessoa <|-down- Gerente 
+
+' Gerente posicionado à direita do Cliente
+Cliente " * " <-right-o " 1 " Gerente : gerencia >
+
+' Cliente apontando para baixo para Transacao e Cartão
+Cliente " * " o-down- " * " Transacao : realiza >
+Cliente " 1 " *-down- " 1 " CartaoCredito : compõe >
+
+' FORÇA A ORDEM HORIZONTAL NA BASE: Transacao (1º) -> CartaoCredito (2º)
+Transacao -[hidden]right- CartaoCredito
+
+' CompraParcelada (3º) à direita do Cartão
+CartaoCredito " 1 " *-right- " * " CompraParcelada : compõe >
+
+@enduml

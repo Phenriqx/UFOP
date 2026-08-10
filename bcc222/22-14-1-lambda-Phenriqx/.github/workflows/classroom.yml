@@ -1,0 +1,55 @@
+name: GitHub Classroom Workflow - exercícios lambda
+
+on:
+  - push
+  - workflow_dispatch
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  compilar_testar_e_avaliar:
+    name: Autograding
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Haskell
+        id: setup-haskell
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.2.8'
+          cabal-version: '3.8.1.0'
+
+      - name: Cache Cabal store
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cabal/store
+            dist-newstyle
+          key: ${{ runner.os }}-ghc-${{ steps.setup-haskell.outputs.ghc-version }}-${{ hashFiles('**/*.cabal', '**/cabal.project') }}
+          restore-keys: |
+            ${{ runner.os }}-ghc-${{ steps.setup-haskell.outputs.ghc-version }}-
+
+      - name: Add Cabal executables to PATH
+        run: echo "$HOME/.cabal/bin" >> "$GITHUB_PATH"
+
+      - name: Update Cabal package index
+        run: cabal update
+
+      - name: Install HLint
+        run: cabal install hlint --overwrite-policy=always
+
+      - name: Build project and tests
+        run: cabal build all --enable-tests
+
+      - name: Check code style with HLint
+        run: hlint src --hint=.hlint.yaml
+
+      - name: Run autograding tests
+        if: success() || failure()
+        uses: education/autograding@v1

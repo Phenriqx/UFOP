@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "parseLog",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run log-processor:test:tests -- --no-color --match \"parseLog\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "filterErrors",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run log-processor:test:tests -- --no-color --match \"filterErrors\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "countLogType",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run log-processor:test:tests -- --no-color --match \"countLogType\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Integração (main)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run log-processor:test:tests -- --no-color --match \"Integração\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    }
+  ]
+}

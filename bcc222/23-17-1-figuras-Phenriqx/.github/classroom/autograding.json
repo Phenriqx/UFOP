@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Testes (area)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run figuras-geometricas:test:tests -- --no-color --match \"Função: area\"",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 3
+    },
+    {
+      "name": "Testes (perimetro)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run figuras-geometricas:test:tests -- --no-color --match \"Função: perimetro\"",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 3
+    },
+    {
+      "name": "Testes (ehRegular)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run figuras-geometricas:test:tests -- --no-color --match \"Função: ehRegular\"",
+      "input": "",
+      "output": "5 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 4
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Teste: Exemplo 1",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run overbooking:test:tests -- --no-color --match \"Execução do programa principal (main)/processa corretamente o Exemplo 1 do README\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "Teste: Exemplo 2",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run overbooking:test:tests -- --no-color --match \"Execução do programa principal (main)/processa corretamente o Exemplo 2 do README\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    }
+  ]
+}

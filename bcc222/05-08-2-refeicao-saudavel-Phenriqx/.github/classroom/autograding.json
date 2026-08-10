@@ -1,0 +1,94 @@
+{
+  "tests": [
+    {
+      "name": "Função caloriasRefeicao - Caso 100 g",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Função caloriasRefeicao/calcula o total de calorias para 100 g de bife\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função caloriasRefeicao - Caso 200 g",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Função caloriasRefeicao/calcula o total de calorias para 200 g de bife\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função caloriasRefeicao - Proporcionalidade",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Função caloriasRefeicao/calcula as calorias por proporcionalidade\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função minutosEsteira - Refeição saudável",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Função minutosEsteira/retorna zero para refeição saudável\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função minutosEsteira - Caso 200 g",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Função minutosEsteira/calcula 25 minutos para 200 g de bife\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Função minutosEsteira - Não negativo",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Função minutosEsteira/nunca retorna valor negativo\"",
+      "input": "",
+      "output": "+++ OK, passed 100 tests.",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Saudável",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Programa principal/imprime refeição saudável para 100.5 g\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Excesso",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Programa principal/imprime minutos de esteira para 200 g\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Programa principal - Formatação",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run refeicao-saudavel:test:tests -- --no-color --match \"Programa principal/imprime minutos de esteira com duas casas decimais\"",
+      "input": "",
+      "output": "1 example, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}

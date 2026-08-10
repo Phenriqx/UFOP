@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "Testes (toDigits)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run luhn-validator:test:tests -- --no-color --match \"toDigits\"",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Testes (doubleEveryOther)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run luhn-validator:test:tests -- --no-color --match \"doubleEveryOther\"",
+      "input": "",
+      "output": "3 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Testes (sumDigits)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run luhn-validator:test:tests -- --no-color --match \"sumDigits\"",
+      "input": "",
+      "output": "2 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Testes (validate)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run luhn-validator:test:tests -- --no-color --match \"validate\"",
+      "input": "",
+      "output": "2 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Testes (main - E/S)",
+      "setup": "",
+      "run": "LANG=C.UTF-8 cabal run luhn-validator:test:tests -- --no-color --match \"Ação de E/S: main\"",
+      "input": "",
+      "output": "2 examples, 0 failures",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    }
+  ]
+}

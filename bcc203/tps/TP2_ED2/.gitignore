@@ -1,0 +1,18 @@
+# Pasta de fitas temporárias
+fitas/
+
+# Arquivos de texto gerados pela execução do algoritmo
+entrada_atual.txt
+resultado_final.txt
+entrada_atual_desc.txt
+resultado_final.bin
+
+# Executáveis e arquivos objeto compilados em C
+exe
+ordena
+*.exe
+*.out
+*.o
+
+# Base de dados original (muito pesada para o GitHub)
+PROVAO.TXT

@@ -1,0 +1,35 @@
+cabal-version:      2.4
+name:               pedidos
+version:            0.1.0.0
+build-type:         Simple
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Pedidos
+  build-depends:
+      base >=4.14 && <5,
+      extra
+  default-language:    Haskell2010
+  ghc-options:         -Wall -Wno-missing-home-modules
+
+executable pedidos-app
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  build-depends:
+      base >=4.14 && <5,
+      pedidos
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+
+test-suite test-pedidos
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             MainSpec.hs
+  build-depends:
+      base >=4.14 && <5,
+      pedidos,
+      extra,
+      hspec >=2.7,
+      QuickCheck
+  default-language:    Haskell2010
+  ghc-options:         -Wall

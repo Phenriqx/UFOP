@@ -1,0 +1,17 @@
+Pilha via vetor:
+	Vantagens:
+		- Acesso rápido O(1) devido à indexação do vetor.
+		- Contíguo na memória
+		- Mais simples de implementar
+	Desvantagens:
+		- Tamanho fixo ou alto custo para realocar caso seja dinâmico
+
+Pilha via ponteiros:
+	Vantagens:
+		- Tamanho dinâmico
+		- Não precisa preocupar com realocação
+	Desvantages:
+		- Cada push e pop está alocando ou liberando memória
+		- Overhead de ponteiros
+		- Não é contíguo na memória
+

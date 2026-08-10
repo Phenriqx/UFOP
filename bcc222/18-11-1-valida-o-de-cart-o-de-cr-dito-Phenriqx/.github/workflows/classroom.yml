@@ -1,0 +1,36 @@
+name: GitHub Classroom Workflow - Luhn Validator
+
+on:
+  - push
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  compilar_e_testar:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Haskell
+        id: setup-haskell
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.2.8'
+          cabal-version: '3.8.1.0'
+      - name: Cache Cabal store
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cabal/store
+            dist-newstyle
+          key: <span class="math-inline">\{\{ runner\.os \}\}\-ghc\-</span>{{ steps.setup-haskell.outputs.ghc-version }}-${{ hashFiles('**/luhn-validator.cabal') }}
+          restore-keys: |
+            <span class="math-inline">\{\{ runner\.os \}\}\-ghc\-</span>{{ steps.setup-haskell.outputs.ghc-version }}-
+      - name: Build project and tests
+        run: cabal build --enable-tests
+      - name: Run Autograding Tests
+        uses: education/autograding@v1

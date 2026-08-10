@@ -1,0 +1,6 @@
+Programação funcional em Haskell.
+
+Haskell permite escrever programas com funções puras.
+Funções puras facilitam testes, composição e raciocínio equacional.
+
+Este projeto analisa a frequência de palavras em um arquivo de texto.
