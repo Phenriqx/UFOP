@@ -1,0 +1,91 @@
+/////////////
+ROTEIRO
+///////////
+
+
+////////////////////
+1) DIVIDA SEU APLICATIVO EM COMPONENTES - Cada um será uma CAMADA
+
+1.1) Arquitetura Monolitica ---------
+- crie o diretorio SRC\LIB
+- divida o arquivo da biblioteca separando a interface (.h) da implementação (.cpp), não se esqueça de atualizar o caminho do .h em main.cpp
+- use sua biblioteca na main e compile a arquitetura monolitica: g++ main.cpp .\lib\biblioteca.cpp
+- execute o codigo apenas para mostrar que funcionou
+- repare que qq alteração na biblioteca implicará em recompilação do código da aplicação, isto fica evidente no comando g++
+
+1.2) Arquitetura em Camadas  ---------
+- entre no diretorio LIB
+- compile a biblioteca como uma DLL: g++ -shared biblioteca.cpp -o bib.dll
+- volte para o diretorio SRC
+- compile a aplicação em camadas: g++ main.cpp -L.\lib -lbib
+- tente executar a aplicação e mostre que ela falhará por falta da DLL no mesmo diretorio do EXE
+- copie a DLL para o diretorio SRC e mostre que passou a funcionar
+- crie o direorio BIN na raiz do projeto
+- recomplie a aplicação e a biblioteca configurando BIN como local para os componentes compilados serem gerados:
+  * a partir do diretorio LIB execute: g++ -shared biblioteca.cpp -o ..\..\bin\bib.dll
+  * a partir do diretorio SRC execute: g++ main.cpp -L..\bin -lbib -o ..\bin\main.exe
+- vá para o diretorio BIN e execute a aplicação
+- finalmente, vá para o diretorio TEST e compile os teste regressivos: g++ main.cpp -L..\bin -lbib -o ..\bin\test.exe
+- execute os testes e mostre que funcionou
+- altere algum cenário de teste, recompile, e mostre que passou a falhar (depois, não se esqueça de corrijir)
+
+1.3) Testes são sua bussola, ele mantém o projeto nos trilhos --------
+- altere o codigo da sua biblioteca (DLL) e mostre que se não será necessária a recompilação da aplicação se vc não alterar a API
+- para isso, substitua o codigo do método FAT() por uma versão recursiva permitindo falhas durante a implementação
+- sugestão de código:
+	#define NO_RECURSION
+	#ifdef NO_RECURSION
+	long unsigned int fat(int n ) {
+ 
+		long unsigned int result = 1;
+  
+		for (int i = 1; i <= n; i++) {
+			result = result * i;
+		}
+
+		return result;
+	}
+	#else
+
+	long unsigned int fat(int n ) {
+ 
+		long unsigned int result = 1;
+ 
+		return result;
+	}
+	#endif
+	
+- a partir do diretorio BIN execute:
+  * g++ -shared ..\src\lib\biblioteca.cpp -o bib.dll
+  * execute a aplicativo e o teste para mostra que não foi necessario recompilar nenhum deles para executa-los, mostre que ambos funcionaram
+  * depois, comente #define NO_RECURSION, recompile a biblioteca e mostre que a aplicação e o teste executam mas falham  
+  * finalmente, implemente uma versão recursiva de FAT até que ela passe no teste! PRONTO!!!!
+  * sugestão de codigo:
+    long unsigned int fat(int n ) {
+ 
+		long unsigned int result = 1;
+
+		if( n > 0) result = n * fat( n - 1);
+  
+		return result;
+	}
+	
+1.4)Uma API precisa ser estável! Instabilidades colocam o projeto em risco!!!
+ 
+  - Altere a API da biblioteca e mostre que isso provocará mudanças em avalanche!!!
+	* sugestão de codigo:
+		long unsigned int fat( long int n ) {    ///// veja o long nos parametros
+ 
+			long unsigned int result = 1;
+
+			if( n > 0) result = n * fat( n - 1);
+  
+			return result;
+		}
+	
+  - discuta então, a importância de um bom projeto de API (ELA PRECISA SER O MAIS ESTÀVEL POSSÌVEL!!!!)
+   * g++ -shared ..\src\lib\biblioteca.cpp -o bib.dll
+   * g++ ..\test\main.cpp -L. -lbib -o test.exe
+   * g++ ..\src\main.cpp -L. -lbib -o main.exe
+   * volte ao arquivo onde discutimos o projeto da API da Classe Container
+   * Volte ao arquivo onde discutimos classes abstratas e concretas! Mostre o slide laranja!!!
